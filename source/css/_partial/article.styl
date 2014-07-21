@@ -4,6 +4,11 @@
 .article-inner
   @extend $block
   overflow: hidden
+  background: color-theme
+
+.article-index
+  max-height: 250px
+  overflow-y: scroll
 
 .article-meta
   clearfix()
@@ -16,7 +21,6 @@
   float: left
   line-height: 1em
   color: #ccc
-  text-shadow: 0 1px #fff
   margin-left: 8px
   &:before
     content: "\2022"
@@ -41,7 +45,7 @@
 .article-entry
   @extend $base-style
   clearfix()
-  color: color-default
+  color: color-font
   padding: 0 article-padding
   p, table
     line-height: line-height
@@ -81,7 +85,11 @@
     font-family: font-serif
     font-size: 1.4em
     margin: line-height 20px
-    text-align: center
+    text-align: left
+    border-left: 5px solid rgba(152, 232, 99, 0.8)
+    margin 0.65em 0 0.65em 4%
+    padding-left 1%
+    padding-right 1%
     footer
       font-size: font-size
       margin: line-height 0
@@ -128,7 +136,6 @@
   border-radius: 15px
   background: color-background
   color: color-grey
-  text-shadow: 0 1px #fff
   text-decoration: none
   &:hover
     background: color-link
@@ -187,7 +194,6 @@
 
 .article-nav-link-wrap
   text-decoration: none
-  text-shadow: 0 1px #fff
   color: color-grey
   box-sizing: border-box
   margin-top: block-margin
@@ -261,7 +267,6 @@ $article-share-link
   float: left
   position: relative
   color: #999
-  text-shadow: 0 1px #fff
   &:before
     font-size: 20px
     font-family: font-icon

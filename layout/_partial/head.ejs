@@ -25,10 +25,15 @@
   <% if (theme.rss){ %>
     <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
+  <% if (theme.google_siteVerification.id) { %>
+    <meta name="google-site-verification" content="<%= theme.google_siteVerification.id %>" />
+  <% } %>
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- theme.favicon %>">
   <% } %>
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <script src="<%- config.root %>js/jquery-2.1.0.min.js"></script>
   <%- css('css/style') %>
   <%- partial('google-analytics') %>
+  <%- partial('math-jax')%>
 </head>

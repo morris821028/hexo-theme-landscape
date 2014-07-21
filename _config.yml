@@ -2,6 +2,7 @@
 menu:
   Home: /
   Archives: /archives
+  About: /about
 rss: /atom.xml
 
 # Content
@@ -16,6 +17,8 @@ widgets:
 - tagcloud
 - archive
 - recent_posts
+- links
+- ukagaka
 
 # Miscellaneous
 google_analytics:
@@ -24,3 +27,12 @@ twitter:
 google_plus:
 fb_admins:
 fb_app_id:
+
+# Google sitemap
+google_siteVerification:
+  id: 5mRgj8NanEMpGZuNfHNJNmH90RgNlrnJXsFlTaKD6Gs
+
+# Toc
+toc:
+  article: true   ## show contents in article.
+  aside: true     ## show contents in aside.

@@ -1,0 +1,116 @@
+#ukagaka_controlpanel 
+  font-size 1.1em
+  position fixed
+  right 0px
+  bottom 0px
+  width 50%
+  font-family 'Comic Sans MS', font-default
+  img    
+    color color-blue
+    width 24px
+    height 24px
+    display inline-block
+    &:hover
+      opacity 0.4
+      transition color .5s
+  span
+    float right
+    width 5%
+    color color-font
+    font-size font-size+5
+    &:hover:before
+      color color-blue
+    &[title="menu"]::before, &[title="gotop"]::before
+      font-family font-icon-family
+      font-smoothing()
+    &[title="menu"]::before
+      content "\f03a"
+    &[title="gotop"]::before
+      content "\f062"  
+
+#ukagaka_menu_list
+  span
+    color color-font
+    font-size font-size+5
+    &:hover:before
+      color color-blue
+    &[title="godown"]::before,&[title="music"]::before,&[title="mail"]::before,&[title="power"]::before,&[title="learn"]::before
+      font-family font-icon-family
+      font-smoothing() 
+    &[title="godown"]::before
+      content "\f063"
+    &[title="music"]::before
+      content "\f001"
+    &[title="mail"]::before
+      content "\f003"
+    &[title="power"]::before
+      content "\f011"
+    &[title="learn"]::before
+      content "\f044"
+
+#ukagaka_panel 
+  width 50%
+  position fixed
+  right 0px
+  bottom 30px
+  span 
+    padding 5px
+  	cursor pointer
+  	height 0px  
+
+.ukagaka_box, .ukagaka_toc
+  position absolute
+  bottom 230px
+  right 120px
+  font-size 100%
+  background color-theme
+  color color-font
+  width 40%
+
+.ukagaka_msg
+  border: 1px solid color-widget-border
+  box-shadow: 0 -1px 4px color-widget-border inset
+  padding 0.5em 2% 1em
+  color color-font
+  width 100%
+  font-family 'Comic Sans MS', font-serif
+  &::before
+    font-smoothing()
+    padding-right 0.5em    
+  span#ukagaka_menu_btn_addstring, span#ukagaka_menu_btn_renewlist, 
+  span#ukagaka_menu_btn_exit, span#ukagaka_btn_menu, span#ukagaka_addmenu_add
+    margin 0.1em
+    display inline
+    &:hover
+        color color-blue
+    &::before
+        font-smoothing()
+        padding-right 0.5em
+  a
+    color: color-link
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
+.ukagaka_img 
+  width 20%
+  position fixed
+  right 0px
+  bottom 0px 
+
+.ukagaka_img2
+  width 10%
+  @media mini
+    width 30%
+  @media tablet
+    width 15%
+
+#ukagaka_stringinput 
+  >input
+    width 95%
+
+input
+  &::-moz-placeholder 
+    color color-font
+  &::-webkit-input-placeholder
+    color color-font

@@ -24,7 +24,7 @@ widgets:
 google_analytics:
 favicon: /favicon.png
 twitter:
-google_plus:
+google_plus: 108158678174364359204
 fb_admins:
 fb_app_id:
 
@@ -36,3 +36,8 @@ google_siteVerification:
 toc:
   article: true   ## show contents in article.
   aside: true     ## show contents in aside.
+
+## social
+facebook_url: https://www.facebook.com/Morris1028
+github_url: https://github.com/morris821028
+google_plus_url: https://plus.google.com/u/0/108158678174364359204

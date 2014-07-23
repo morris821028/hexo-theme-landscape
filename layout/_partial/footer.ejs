@@ -6,7 +6,18 @@
     <div id="footer-info" class="inner">
       &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
+    </div>  
+    <div class="social-group">
+	    <% if(theme.github_url){ %>
+	    <a href="<%=theme.github_url %>" target="_blank" title="github"><i class="icon-github"></i></a>
+	    <% } %>
+	    <% if(theme.google_plus_url){ %>
+	    <a href="<%=theme.google_plus_url %>" target="_blank" title="Google+"><i class="icon-google-plus-sign"></i></a>
+	    <% } %>
+	    <% if(theme.facebook_url){ %>
+	    <a href="<%=theme.facebook_url %>" target="_blank" title="facebook"><i class="icon-facebook-sign"></i></a>
+	    <% } %>
+   </div>
   </div>
 </footer>
 

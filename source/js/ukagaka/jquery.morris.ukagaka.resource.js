@@ -50,8 +50,8 @@
 
             var innerSettingHTML = "";
             innerSettingHTML += "<img class='ukagaka_img' src='/img/uk.png'></img>";
-            innerSettingHTML += "<div class='ukagaka_box'>";
-            innerSettingHTML += "<div class='ukagaka_msg animated infinite shake' id='ukagaka_msgbox'>" + loadingText + "</div>";
+            innerSettingHTML += "<div class='ukagaka_box animated bounceIn'>";
+            innerSettingHTML += "<div class='ukagaka_msg animated tada' id='ukagaka_msgbox'>" + loadingText + "</div>";
             innerSettingHTML += "<div class='ukagaka_msg' id='ukagaka_menubox' style='display:none'>" + menuMainText + "<br/><br/><span id='ukagaka_menu_btn_addstring'>" + menuLearnText + "</span><span id='ukagaka_menu_btn_renewlist'>" + menuLogText + "</span><span id='ukagaka_menu_btn_exit'>" + menuExitText + "</span></div>";
             innerSettingHTML += "<div class='ukagaka_msg' id='ukagaka_stringinput' style='display:none'>" + menuQueryText + "<input id='ukagaka_addstring' type='text' placeholder='" + learnPlaceholder + "'/><span id='ukagaka_addmenu_add'>" + menuSubmitText + "</span><span id='ukagaka_btn_menu'>" + menuCancelText + "</span></div>";
             innerSettingHTML += "<div class='ukagaka_msg' id='ukagaka_renewlist' style='display:none'>" + logText + "<span id='ukagaka_btn_menu'>" + menuCancelText + "</span></div>";
@@ -223,7 +223,7 @@
             });
 
             $(document).on('click', "#ukagaka_btn_mail", function(event) {
-                $("#ukagaka_usertalk").toggle('slide', null, 500)
+                // $("#ukagaka_usertalk").toggle('slide', null, 500)
                 $("#ukagaka_menu_list").toggle('slide', null, 500);
             }).on('click', "#ukagaka_btn_up", function(event) {
                 $("html,body").animate({
@@ -261,10 +261,10 @@
         googleFormkey: '1xADUIiBq1ksH7lxwSch1Nz_p2gSxdJttmv5OJOxJye0',
         googleSheet: "od6",
         googleSheetField: "entry.2030600456",
-        talkTime: 30000,
+        talkTime: 15000,
 
         ukagakaText: "史蒂芙",
-        loadingText: "Wryyyyy",
+        loadingText: "Wryyyyyyyyyyy !!",
         learnPlaceholder: "default: input for learn.",
         menuMainText: "使用選單功能&#65292; 為什麼要聽你的！",
         menuLearnText: "$ 學習",

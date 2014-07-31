@@ -17,7 +17,8 @@
     float right
     width 5%
     color color-font
-    font-size font-size+5
+    font-size font-size
+    margin 0.1em
     &:hover:before
       color color-blue
     &[title="menu"]::before, &[title="gotop"]::before
@@ -31,7 +32,8 @@
 #ukagaka_menu_list
   span
     color color-font
-    font-size font-size+5
+    font-size font-size
+    margin 0.1em
     &:hover:before
       color color-blue
     &[title="godown"]::before,&[title="music"]::before,&[title="mail"]::before,&[title="power"]::before,&[title="learn"]::before
@@ -49,30 +51,26 @@
       content "\f044"
 
 #ukagaka_panel 
-  width 30%
+  width 40%
   position fixed
   right 0px
   bottom 30px
   span 
-    padding 5px
   	cursor pointer
   	height 0px  
 
 .ukagaka_box, .ukagaka_toc
   position absolute
-  bottom 230px
-  right 120px
+  bottom 100px
+  right 100px
   font-size 100%
   background color-theme
   color color-font
-  width 40%
+  width 50%
 
 .ukagaka_msg
-  border: 1px solid color-widget-border
-  box-shadow: 0 -1px 4px color-widget-border inset
-  padding 0.5em 2% 1em
+  padding 0.5em
   color color-font
-  width 100%
   font-family 'Comic Sans MS', font-serif
   &::before
     font-smoothing()
@@ -107,3 +105,50 @@ input
     color color-font
   &::-webkit-input-placeholder
     color color-font
+
+.ukagaka_box
+  position absolute
+  right 0px
+  bottom 130px
+  border 5px solid #c81e2b
+  text-align center
+  color #333
+  -webkit-border-top-left-radius 140px / 40px
+  -webkit-border-top-right-radius 140px / 40px
+  -webkit-border-bottom-right-radius 140px / 40px
+  -webkit-border-bottom-left-radius 140px / 40px
+  -moz-border-radius 140px / 40px
+  border-radius 140px / 40px
+  &:before
+    content ""
+    position absolute
+    z-index 10
+    bottom -20px
+    right 100px
+    width 20px
+    height 20px
+    border 5px solid #c81e2b
+    -webkit-border-radius 50px
+    -moz-border-radius 50px
+    border-radius 50px
+    display block
+    background color-theme
+  &:after
+    content ""
+    position absolute
+    z-index 10
+    bottom -40px
+    right 50px
+    width 25px
+    height 25px
+    border 5px solid #c81e2b
+    -webkit-border-radius 25px
+    -moz-border-radius 25px
+    border-radius 25px
+    display block
+    background color-theme
+
+
+
+
+

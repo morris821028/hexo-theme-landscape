@@ -134,4 +134,10 @@
 
     $container.removeClass('mobile-nav-on');
   });
+
+  $("div.lazy").lazyload({
+      effect : "fadeIn"
+  });
+
+  $("img.lazy").lazyload();
 })(jQuery);

@@ -1,7 +1,8 @@
 .hex-container
-  width 700px
-  height 100%
-  display inline-block
+  width 800px
+  height 320px
+  display block
+  position relative
 
 .hex
   width: 150px;
@@ -15,6 +16,8 @@
   margin:25px 5px;
   text-align center
   zoom 1
+  font-family font-serif
+  font-weight bold
   animation: animatedBackground 10s linear infinite;
   &.hex-gap
     margin-left 86px
@@ -72,13 +75,12 @@
   .inner
     color #eee
     position: absolute;
-    top:0;
-    right:0;
+    top:0
+    right:0
     a
       text-indent: 0;
       color: white
   h4
-    font-family 'Josefin Sans', sans-serif
     margin 0
   hr
     border 0
@@ -86,16 +88,19 @@
     width 60%
     margin 15px auto
   p
-    font-size 16px
-    font-family font-mono
+    font-size 22px
     width 80%
     margin 0 auto
   &.hex-1
     background #74cddb
   &.hex-2
-    background #f5c53c
+    background red
   &.hex-3
     background #80b971
+  &.hex-back
+    background #80b971
+    a
+      padding 0 4px
 
 .hex .corner-1,
   .hex .corner-2, .hex .corner-3
@@ -154,10 +159,88 @@
   line-height 25pt
   text-align center
   visibility hidden
+.hex-background
+  width: 900px
+  position: absolute
+  z-index: -1
+  top: -136px
+  left: -80px
+  .hex
+    background-color: #708090
 
 @keyframes animatedBackground
   from { background-position: 0 0; }
   to { background-position: 100% 0; }
 
+.als-viewport
+  position relative
+  overflow hidden
+  height 390px
+  margin 0px auto
 
+.als-wrapper
+  position relative
+  list-style none
 
+.als-item
+  position relative
+  display block
+  text-align center
+  cursor pointer
+  float left
+
+.als-prev, .als-next
+  position absolute
+  cursor pointer
+  clear both
+
+.als-container
+  position relative
+  width 100%
+  z-index 0
+  background: none repeat scroll 0% 0% #2D2D2D
+  margin 0px -20px
+  padding 15px 20px
+  border-style solid
+  border-color #DDD
+  border-width 1px 0px
+  overflow auto
+  color #CCC
+  line-height 25.6px
+  text-align: center
+  .als-item
+    margin 0px 5px
+    padding 4px 0px
+    min-height 120px
+    min-width 100px
+    text-align center
+
+    display block
+    margin 0 auto
+    vertical-align middle
+  .als-prev
+    left 30px
+    font-size 30px
+  .als-next
+    right 30px
+    font-size 30px
+
+.als-container .als-prev, .als-container .als-next
+  top 175px
+
+.als-bullets
+  z-index: 1000
+  display: inline-block
+  li
+    float: left
+    margin-left: 5px
+    cursor: pointer
+    color: white
+    text-indent: -9999px
+    background: url(/img/als-bullets.png) no-repeat 4px 0
+    width: 13px
+    height: 12px
+    overflow: hidden
+.als-bullets li.bullets-active
+  color: white
+  background-position: -8px 0

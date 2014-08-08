@@ -172,6 +172,7 @@
   from { background-position: 0 0; }
   to { background-position: 100% 0; }
 
+/* als */
 .als-viewport
   position relative
   overflow hidden
@@ -244,3 +245,104 @@
 .als-bullets li.bullets-active
   color: white
   background-position: -8px 0
+/* works */
+.wg-container
+  position relative
+  width 100%
+  z-index 0
+  background: none repeat scroll 0% 0% #2D2D2D
+  margin 0px -20px
+  padding 15px 20px
+  border-style solid
+  border-color #DDD
+  border-width 1px 0px
+  overflow auto
+  color #CCC
+  line-height 25.6px
+  text-align: center
+  hr
+    border 0
+    height 5px
+    background #333
+    background-image -webkit-linear-gradient(left, #333, #ccc, #333)
+    background-image -moz-linear-gradient(left, #333, #ccc, #333)
+    background-image -ms-linear-gradient(left, #333, #ccc, #333)
+    background-image -o-linear-gradient(left, #333, #ccc, #333)
+
+.wg-item
+  list-style none
+  .inner 
+    height 160px
+  li
+    display block
+    float left
+    margin 16px
+    width 45%
+    .header
+      overflow hidden
+      width 100%
+      height 256px
+      border 4px solid #b4b4b4
+      cursor pointer
+      float left
+      margin 5px
+      position relative
+      overflow hidden
+      -webkit-box-shadow 1px 1px 1px 1px #ccc
+      -moz-box-shadow 1px 1px 1px 1px #ccc
+      box-shadow 1px 1px 1px 1px #ccc
+      &:hover
+        a
+          -moz-transform scale(1.2)
+          -o-transform scale(1.2)
+          -webkit-transform scale(1.2)
+          transform scale(1.2)
+      a
+        position absolute
+        left 0
+        -webkit-transition all 300ms ease-out
+        -moz-transition all 300ms ease-out
+        -o-transition all 300ms ease-out
+        -ms-transition all 300ms ease-out
+        transition all 300ms ease-out
+    .image
+      height 95%
+      width 100%
+      padding 0.5em
+      display block
+      background-size cover
+    h3
+      font-size 22px
+      font-weight normal
+      line-height 22px
+      margin-bottom 10px
+      margin-top 10px
+      text-align center
+      a
+        &:hover
+          text-decoration none
+    ul
+      &.links
+        float right
+    .links
+      li
+        display block
+        margin-right 0px !important
+        margin-left 5px
+        width initial
+        a
+          background #65A9D7
+          padding 5.5px 11px
+          border-radius 5px
+          box-shadow 0px 1px 0px #000
+          text-shadow 0px 1px 0px rgba(0, 0, 0, 0.4)
+          font-size 16px
+          font-family Georgia,Serif
+          text-decoration none
+          vertical-align middle
+          color white
+  .description
+    font-size 16px
+    text-align left
+    margin: 0.2em 0px;
+

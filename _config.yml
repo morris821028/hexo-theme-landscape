@@ -4,6 +4,7 @@ menu:
   Archives: /archives
   About: /about
   Picture: /picture
+  Works: /works
 rss: /atom.xml
 
 # Content
@@ -11,7 +12,7 @@ excerpt_link: Read More
 fancybox: true
 
 # Sidebar
-sidebar: bottom
+sidebar: right
 widgets:
 - recent_posts
 - category

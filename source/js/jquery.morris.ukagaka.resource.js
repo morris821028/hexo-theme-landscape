@@ -49,6 +49,7 @@
             ukagakaText = o.ukagakaText;
 
             var innerSettingHTML = "";
+            innerSettingHTML += "<input type=\"ukagaka_checkbox\">";
             innerSettingHTML += "<img class='ukagaka_img' src='/img/uk.png'></img>";
             innerSettingHTML += "<div class='ukagaka_box'>";
             innerSettingHTML += "<div class='ukagaka_msg animated infinite shake' id='ukagaka_msgbox'>" + loadingText + "</div>";
@@ -70,8 +71,7 @@
             footerMenuHTML += "</div>";
             footerMenuHTML += "</div>";
 
-            obj.append(innerSettingHTML);
-            obj.after(footerMenuHTML);
+            obj.append(innerSettingHTML + footerMenuHTML);
 
             /* $.ajax({
                     type: 'GET',

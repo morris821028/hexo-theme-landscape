@@ -20,6 +20,7 @@
   line-height 1.3em
   font-size 0.8em
   float right
+  @extend $block
   .toc
     li
       list-style-type none
@@ -30,6 +31,7 @@
   .toc-child
     padding-left 1.5em
 #toc.toc-aside
+  @extend $block
   display none
   width 13%
   position fixed
@@ -47,14 +49,12 @@
     height 40%
     right 58px
     padding 0 20px
-    background #fff
     overflow auto
   @media mq-tablet
     width 60%
     height 40%
     right 58px
     padding 0 20px
-    background #fff
     overflow auto
   h2
     padding 0.3em 0

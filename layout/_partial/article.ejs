@@ -36,7 +36,14 @@
               <% } %>
               </div>
           <% } %>
-        <%- post.content %>
+        <% if(index) { %>
+          <div class="toggle-content">
+            <%- post.content %>
+          </div>
+          <p class="toggle-input article-more-link"><a>Read More +</a></p>
+        <% } else { %>
+          <%- post.content %>
+        <% } %>
       <% } %>
     </div>
 

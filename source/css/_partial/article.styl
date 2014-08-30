@@ -7,8 +7,6 @@
   background: color-theme
 
 .article-index
-  max-height: 250px
-  overflow-y: scroll
 
 .article-meta
   clearfix()
@@ -83,7 +81,6 @@
     padding: 10px 0
   blockquote
     font-family: font-serif
-    font-size: 1.4em
     margin: line-height 20px
     text-align: left
     border-left: 5px solid rgba(152, 232, 99, 0.8)
@@ -130,13 +127,17 @@
       margin-top: 0
 
 .article-more-link a
+  @extend $block
+  width 95%
+  cursor: pointer
   display: inline-block
   line-height: 1em
   padding: 6px 15px
   border-radius: 15px
-  background: color-background
+  background: color-button
   color: color-grey
   text-decoration: none
+  text-align center
   &:hover
     background: color-link
     color: #fff
@@ -327,6 +328,11 @@ $article-share-link
     display: block
     max-width: 100%
     margin: 0 auto
+
+.toggle-content
+  max-height: 250px
+  transition(.5s ease max-height)
+
 /*
 $article-gallery-ctrl
   position: absolute

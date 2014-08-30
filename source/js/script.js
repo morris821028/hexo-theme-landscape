@@ -135,6 +135,18 @@
     $container.removeClass('mobile-nav-on');
   });
 
+  $(".toggle-input").on('click', function() {
+    var content = $(this).prev(".toggle-content");
+    if (!content.css("max-height") || content.css("max-height") == "250px") {
+      content.css("max-height", "9999px");
+      $(this).first("a").html("<a>Read More -</a>");
+    } else {
+      content.css("max-height", "250px");
+      $(this).first("a").html("<a>Read More +</a>");
+    }
+  });
+
+// image lazy load
   $("div.lazy").lazyload({
   });
 

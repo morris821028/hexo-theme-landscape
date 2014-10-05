@@ -46,7 +46,7 @@
 
 #ukagaka_panel 
   @extend $block
-  width: 260px;
+  width: 280px;
   position:fixed;
   right: 30px;
   bottom: 0;
@@ -78,11 +78,11 @@
   label:before 
     content: attr(data-collapsed)
   input[type="checkbox"]:checked + label:before 
-    content:attr(data-expanded)
+    content: attr(data-expanded)
   .chat-box-content
     display: none
   input[type="checkbox"]:checked ~ .chat-box-content 
-    display:block
+    display: block
   input[type="checkbox"]:hover + label 
     background-color: color-link
 

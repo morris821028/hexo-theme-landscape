@@ -71,7 +71,7 @@
             dialogHTML += "<img class='ukagaka_img' src='/img/uk.png'></img>";
 
             var innerSettingHTML = "";
-            innerSettingHTML += "<input type=\"checkbox\" checked><label data-expanded=\"Stephanie(o)\" data-collapsed=\"Stephanie(x)\">" + footerMenuHTML + "</label>";
+            innerSettingHTML += "<input type=\"checkbox\" checked><label data-expanded=\"(*ﾟ∀ﾟ)\" data-collapsed=\"(*ﾟーﾟ)\">" + footerMenuHTML + "</label>";
             innerSettingHTML += "<div class=\"chat-box-content\">" + dialogHTML + "</div>";
 
             obj.append(innerSettingHTML);

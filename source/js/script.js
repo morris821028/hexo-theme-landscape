@@ -135,14 +135,14 @@
     $container.removeClass('mobile-nav-on');
   });
 
-  $(".toggle-input").on('click', function() {
-    var content = $(this).prev(".toggle-content");
+  $(".toggle-input a").on('click', function() {
+    var content = $(this).parent().prev(".toggle-content");
     if (!content.css("max-height") || content.css("max-height") == "250px") {
-      content.css("max-height", "9999px");
-      $(this).first("a").html("<a>Read More -</a>");
+      content.css("max-height", "99999px");
+      $(this).text("Read More -");
     } else {
       content.css("max-height", "250px");
-      $(this).first("a").html("<a>Read More +</a>");
+      $(this).text("Read More +");
     }
   });
 

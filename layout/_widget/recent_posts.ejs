@@ -5,7 +5,13 @@
       <ul>
         <% site.posts.sort('date', -1).limit(10).each(function(post){ %>
           <li>
-            <a href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
+            <a class="text" href="<%- url_for(post.path) %>">
+              <% if (post.icon) { %>
+                <i class="<%= post.icon %>"></i> 
+              <% } else { %>
+                <i class="icon-file-o"></i> 
+              <% }%>
+            <%= post.title || '(no title)' %></a>
           </li>
         <% }) %>
       </ul>

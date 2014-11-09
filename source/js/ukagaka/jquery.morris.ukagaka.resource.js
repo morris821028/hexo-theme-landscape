@@ -61,6 +61,7 @@
             footerMenuHTML += "</div>";
 
             var dialogHTML = "";
+            dialogHTML += "<img class='ukagaka_img' src='/img/uk2.png'></img>";
             dialogHTML += "<div class='ukagaka_box'>";
             dialogHTML += "<div class='ukagaka_msg' id='ukagaka_msgbox'>" + loadingText + "</div>";
             dialogHTML += "<div class='ukagaka_msg' id='ukagaka_menubox' style='display:none'>" + menuMainText + "<br/><br/><span id='ukagaka_menu_btn_addstring'>" + menuLearnText + "</span><span id='ukagaka_menu_btn_renewlist'>" + menuLogText + "</span><span id='ukagaka_menu_btn_exit'>" + menuExitText + "</span></div>";
@@ -68,7 +69,6 @@
             dialogHTML += "<div class='ukagaka_msg' id='ukagaka_renewlist' style='display:none'>" + logText + "<span id='ukagaka_btn_menu'>" + menuCancelText + "</span></div>";
             dialogHTML += "<input id='ukagaka_sheetfield' type='hidden' value='" + sheetfield + "'>";
             dialogHTML += "</div>";
-            dialogHTML += "<img class='ukagaka_img' src='/img/uk.png'></img>";
 
             var innerSettingHTML = "";
             innerSettingHTML += "<input type=\"checkbox\" checked><label data-expanded=\"(*ﾟ∀ﾟ)\" data-collapsed=\"(*ﾟーﾟ)\">" + footerMenuHTML + "</label>";

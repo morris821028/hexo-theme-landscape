@@ -10,6 +10,40 @@
       }) %>
     </nav>
   <% } %>
+<% } else if (pagination == 4) { %>
+<article class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner ">
+    <header class="article-header">
+      <h1 itemprop="name">
+        <a class="article-title" href="" itemprop="url">Archive</a>
+      </h1>
+    </header>
+    <footer class="article-footer"></footer>
+    <div class="article-entry article-index archive" itemprop="articleBody">
+    <% var this_year; %>
+      <% page.posts.each(function(item) { %>
+        <% var year = item.date.year(); %>
+        <% if (this_year != year || !this_year){ %>
+        <% if(this_year){ %>
+          </div></ul>
+        <% } %>
+      <div class="archive-itme"><div id="<%= year %>" class="archive-year"><%= year %></div>
+      <ul>
+      <% this_year = year; } %>
+      <li>
+          <time datetime="<%= item.date.toDate().toISOString() %>"><%= item.date.format("MM-DD") %></time>
+          <a href="<%- config.root %><%- item.path %>"><%= item.title %></a>
+          <div class="archive-tag">
+          <%- list_tags(item.tags, {
+            show_count: false,
+            class: 'article-tag'
+          }) %>
+          </div>
+      </li>
+      <% }); %>
+    </div>
+  </div>
+</article>
 <% } else { %>
   <% var last; %>
   <% page.posts.each(function(post, i){ %>

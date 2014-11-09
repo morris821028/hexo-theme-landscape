@@ -2,24 +2,25 @@
   <% if (theme.sidebar === 'bottom'){ %>
     <%- partial('_partial/sidebar') %>
   <% } %>
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/morris821028/hexo-theme-landscape" target="_blank" title="landscape">landscape</a> &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> 
-    </div>  
+  <div class="outer">    
     <div class="social-group">
-	    <% if(theme.github_url){ %>
-	    <a href="<%=theme.github_url %>" target="_blank" title="github"><i class="icon-github"></i></a>
-	    <% } %>
-	    <% if(theme.google_plus_url){ %>
-	    <a href="<%=theme.google_plus_url %>" target="_blank" title="Google+"><i class="icon-google-plus-sign"></i></a>
-	    <% } %>
-	    <% if(theme.facebook_url){ %>
-	    <a href="<%=theme.facebook_url %>" target="_blank" title="facebook"><i class="icon-facebook-sign"></i></a>
-	    <% } %>
+      <% if(theme.github_url){ %>
+      <a href="<%=theme.github_url %>" target="_blank" title="github"><i class="icon-github"></i></a>
+      <% } %>
+      <% if(theme.google_plus_url){ %>
+      <a href="<%=theme.google_plus_url %>" target="_blank" title="Google+"><i class="icon-google-plus-sign"></i></a>
+      <% } %>
+      <% if(theme.facebook_url){ %>
+      <a href="<%=theme.facebook_url %>" target="_blank" title="facebook"><i class="icon-facebook-sign"></i></a>
+      <% } %>
       <% if(theme.uhunt_url){ %>
       <a href="<%=theme.uhunt_url %>" target="_blank" title="uhunt" ><span class="icon-uhunt">UVa<span></a>
       <% } %>
-   </div>
+    </div>
+    <div id="footer-info" class="inner">
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/morris821028/hexo-theme-landscape" target="_blank" title="landscape">landscape</a> &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> 
+    </div>  
+
   </div>
 </footer>
 

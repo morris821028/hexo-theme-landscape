@@ -46,7 +46,7 @@
 
 #ukagaka_panel 
   @extend $block
-  width: 280px;
+  width: 250px;
   position:fixed;
   right: 30px;
   bottom: 0;
@@ -87,13 +87,10 @@
     background-color: color-link
 
 .ukagaka_box, .ukagaka_toc
-  position absolute
-  bottom 100px
-  right 100px
   font-size 100%
   background color-theme
   color color-font
-  width 50%
+  width 100%
 
 .ukagaka_msg
   padding 0.5em
@@ -118,11 +115,10 @@
       text-decoration: underline
 
 .ukagaka_img 
-  width 70%
+  width 100%
   position relative
   right 0px
-  bottom 0px 
-  float right
+  bottom -10px 
 
 #ukagaka_stringinput 
   >input
@@ -130,9 +126,9 @@
 
 .ukagaka_box
   @extend $block
-  position initial
-  width 80%
-  margin 5px 10px
+  width 97%
+  border-width 4px
+  border-color color-grey
 
 .spinner
   margin 5px auto 0

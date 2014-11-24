@@ -61,6 +61,7 @@
             footerMenuHTML += "</div>";
 
             var dialogHTML = "";
+            dialogHTML += playerHTML();
             dialogHTML += "<img class='ukagaka_img' src='/img/uk2.png'></img>";
             dialogHTML += "<div class='ukagaka_box'>";
             dialogHTML += "<div class='ukagaka_msg' id='ukagaka_msgbox'>" + loadingText + "</div>";
@@ -89,6 +90,10 @@
             loadTalk(options);
 
             actionSetting(options, elem);
+
+            playerDeploy();
+
+            $("#playblock").hide();
         }
 
         function loadTalk(options) {
@@ -233,6 +238,11 @@
 
             $(document).on('click', "#ukagaka_btn_mail", function(event) {
                 // $("#ukagaka_usertalk").toggle('slide', null, 500)
+                alert('AIML 入口，正在永久推遲建造 ...');
+                $("#ukagaka_menu_list").toggle('slide', null, 500);
+            }).on('click', "#ukagaka_btn_music", function(event) {
+                // $("#ukagaka_usertalk").toggle('slide', null, 500)
+                $("#playblock").toggle('slide', null, 500);
                 $("#ukagaka_menu_list").toggle('slide', null, 500);
             }).on('click', "#ukagaka_btn_up", function(event) {
                 $("html,body").animate({
@@ -261,6 +271,250 @@
                 sendLearnText(options);
             });
         }
+
+        function playerHTML() {
+            var html;
+            var header = '', ctrl = '', progress = '';
+            header += '<div class="tag"><strong>Title</strong><span class="artist">Artist</span><span class="album">Album</span></div>';
+            ctrl += '<div class="control">';
+            ctrl += '<i class="icon-backward"></i><i class="icon-play"></i><i class="icon-forward"></i>';
+            ctrl += '<span class="progress"><i class="icon-repeat repeat"></i><i class="icon-random"></i></span>';
+            ctrl += '<span class="volume"><i class="icon-volume-up"></i><div class="slider"><div class="pace"></div></div></span>';
+            ctrl += '</div>';
+            progress += '<div class="progress"><div class="slider"><div class="loaded"></div><div class="pace"></div></div><div class="timer right">0:00</div></div>';
+
+            html = '<div id="playblock"><div id="player"><div class="ctrl">';
+            html = html + header + ctrl + progress;
+            html = html + '</div></div></div>';
+            return html;
+        }
+
+        function playerDeploy() {
+            var player = $('#playblock');
+            var repeat = localStorage.repeat || 0,
+                shuffle = localStorage.shuffle || 'false',
+                continous = true,
+                autoplay = false,
+                playlist = [{
+                    title: 'さよならのこと',
+                    artist: 'WHITE ALBUM2 ED',
+                    album: '',
+                    cover: '',
+                    mp3: '/file/music/WHITE-ALBUM2-ED-Piano.mp3',
+                    ogg: '/file/music/WHITE-ALBUM2-ED-Piano.mp3'
+                }, {
+                    title: '光るなら',
+                    artist: '四月は君の嘘 OP',
+                    album: '',
+                    cover: '',
+                    mp3: '/file/music/Shigatsu-wa-Kimi-no-Uso-OP-Piano.mp3',
+                    ogg: '/file/music/Shigatsu-wa-Kimi-no-Uso-OP-Piano.mp3'
+                }];
+                
+                var time = new Date(),
+                    currentTrack = shuffle === 'true' ? time.getTime() % playlist.length : 0,
+                    trigger = false,
+                    audio, timeout, isPlaying, playCounts;
+
+                var play = function() {
+                    audio.play();
+                    player.find('.icon-play').addClass('icon-pause');
+                    timeout = setInterval(updateProgress, 500);
+                    isPlaying = true;
+                }
+
+                var pause = function() {
+                    audio.pause();
+                    player.find('.icon-play').removeClass('icon-pause');
+                    clearInterval(updateProgress);
+                    isPlaying = false;
+                }
+
+                // Update progress
+                var setProgress = function(value) {
+                    var currentSec = parseInt(value % 60) < 10 ? '0' + parseInt(value % 60) : parseInt(value % 60),
+                        ratio = value / audio.duration * 100;
+
+                    player.find('.timer').html(parseInt(value / 60) + ':' + currentSec);
+                    player.find('.progress .pace').css('width', ratio + '%');
+                    player.find('.progress .slider a').css('left', ratio + '%');
+                }
+
+                var updateProgress = function() {
+                    setProgress(audio.currentTime);
+                }
+
+                // Progress slider
+                player.find('.progress .slider').slider({
+                    step: 0.1,
+                    slide: function(event, ui) {
+                        $(this).addClass('enable');
+                        setProgress(audio.duration * ui.value / 100);
+                        clearInterval(timeout);
+                    },
+                    stop: function(event, ui) {
+                        audio.currentTime = audio.duration * ui.value / 100;
+                        $(this).removeClass('enable');
+                        timeout = setInterval(updateProgress, 500);
+                    }
+                });
+
+                // Volume slider
+                var setVolume = function(value) {
+                    audio.volume = localStorage.volume = value;
+                    player.find('.volume .pace').css('width', value * 100 + '%');
+                    player.find('.volume .slider a').css('left', value * 100 + '%');
+                }
+
+                var volume = localStorage.volume || 0.5;
+                player.find('.volume .slider').slider({
+                    max: 1,
+                    min: 0,
+                    step: 0.01,
+                    value: volume,
+                    slide: function(event, ui) {
+                        setVolume(ui.value);
+                        $(this).addClass('enable');
+                        player.find('.icon-volume-up').removeClass('enable');
+                    },
+                    stop: function() {
+                        $(this).removeClass('enable');
+                    }
+                }).children('.pace').css('width', volume * 100 + '%');
+
+                player.find('.icon-volume-up').click(function() {
+                    if ($(this).hasClass('enable')) {
+                        setVolume($(this).data('volume'));
+                        $(this).removeClass('enable').removeClass('icon-volume-off');
+                    } else {
+                        $(this).data('volume', audio.volume).addClass('enable').addClass('icon-volume-off');
+                        setVolume(0);
+                    }
+                });
+
+                // Switch track
+                var switchTrack = function(i) {
+                    if (i < 0) {
+                        track = currentTrack = playlist.length - 1;
+                    } else if (i >= playlist.length) {
+                        track = currentTrack = 0;
+                    } else {
+                        track = i;
+                    }
+
+                    $('audio').remove();
+                    loadMusic(track);
+                    if (isPlaying == true) play();
+                }
+
+                // Shuffle
+                var shufflePlay = function() {
+                    var time = new Date(),
+                        lastTrack = currentTrack;
+                    currentTrack = time.getTime() % playlist.length;
+                    if (lastTrack == currentTrack)++currentTrack;
+                    switchTrack(currentTrack);
+                }
+
+                // Fire when track ended
+                var ended = function() {
+                    pause();
+                    audio.currentTime = 0;
+                    playCounts++;
+                    if (continous == true) isPlaying = true;
+                    if (repeat == 1) {
+                        play();
+                    } else {
+                        if (shuffle === 'true') {
+                            shufflePlay();
+                        } else {
+                            if (repeat == 2) {
+                                switchTrack(++currentTrack);
+                            } else {
+                                if (currentTrack < playlist.length) switchTrack(++currentTrack);
+                            }
+                        }
+                    }
+                }
+
+                var beforeLoad = function() {
+                    var endVal = this.seekable && this.seekable.length ? this.seekable.end(0) : 0;
+                    player.find('.progress .loaded').css('width', (100 / (this.duration || 1) * endVal) + '%');
+                }
+
+                // Fire when track loaded completely
+                var afterLoad = function() {
+                    if (autoplay == true) play();
+                }
+
+                // Load track
+                var loadMusic = function(i) {
+                    var item = playlist[i],
+                        newaudio = $('<audio>').html('<source src="' + item.mp3 + '"><source src="' + item.ogg + '">').appendTo('#player');
+
+                    player.find('.tag').html('<strong>' + item.title + '</strong><span class="artist">' + item.artist + '</span><span class="album">' + item.album + '</span>');
+                    // player.find('#playlist li').removeClass('playing').eq(i).addClass('playing');
+                    audio = newaudio[0];
+                    audio.volume = player.find('.icon-volume-up').hasClass('enable') ? 0 : volume;
+                    audio.addEventListener('progress', beforeLoad, false);
+                    audio.addEventListener('durationchange', beforeLoad, false);
+                    audio.addEventListener('canplay', afterLoad, false);
+                    audio.addEventListener('ended', ended, false);
+                }
+
+                loadMusic(currentTrack);
+                player.find('.icon-play').on('click', function() {
+                    if ($(this).hasClass('icon-pause')) {
+                        pause();
+                    } else {
+                        play();
+                    }
+                });
+                player.find('.icon-forward').on('click', function() {
+                    if (shuffle === 'true') {
+                        shufflePlay();
+                    } else {
+                        switchTrack(--currentTrack);
+                    }
+                });
+                player.find('.icon-backward').on('click', function() {
+                    if (shuffle === 'true') {
+                        shufflePlay();
+                    } else {
+                        switchTrack(++currentTrack);
+                    }
+                });
+
+                if (shuffle === 'true') player.find('.icon-random').addClass('enable');
+                if (repeat == 1) {
+                    player.find('.repeat').addClass('once');
+                } else if (repeat == 2) {
+                    player.find('.repeat').addClass('all');
+                }
+
+                player.find('.icon-repeat').on('click', function() {
+                    if ($(this).hasClass('once')) {
+                        repeat = localStorage.repeat = 2;
+                        $(this).removeClass('once').addClass('all').addClass('icon-refresh');
+                    } else if ($(this).hasClass('all')) {
+                        repeat = localStorage.repeat = 0;
+                        $(this).removeClass('all').removeClass('icon-refresh');
+                    } else {
+                        repeat = localStorage.repeat = 1;
+                        $(this).addClass('once');
+                    }
+                });
+
+                player.find('.icon-random').on('click', function() {
+                    if ($(this).hasClass('enable')) {
+                        shuffle = localStorage.shuffle = 'false';
+                        $(this).removeClass('enable');
+                    } else {
+                        shuffle = localStorage.shuffle = 'true';
+                        $(this).addClass('enable');
+                    }
+                });
+        }
     };
 
     $.ukagaka.defaults = {
@@ -270,7 +524,7 @@
         googleSheetField: "entry.2030600456",
         talkTime: 15000,
 
-        ukagakaText: "史蒂芙",
+        ukagakaText: "千代",
         loadingText: '<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>',
         learnPlaceholder: "default: input for learn.",
         menuMainText: "使用選單功能&#65292; 為什麼要聽你的！",
@@ -279,7 +533,7 @@
         menuExitText: "$ 結束",
         menuCancelText: "$ 取消",
         menuSubmitText: "$ 確認",
-        menuQueryText: "請輸入想要讓史蒂芙學的話<br/><br/>",
+        menuQueryText: "請輸入想要讓千代學的話<br/><br/>",
         logText: "更新日誌<br/><br/>Morris 修正<br/><br/>找尋 AI 系統<br/>找尋 AI 對話<br/>",
     };
 

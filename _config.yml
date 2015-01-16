@@ -14,10 +14,10 @@ excerpt_link: Read More
 fancybox: true
 
 # Sidebar
-sidebar: right
+sidebar: top
 widgets:
-- recent_posts
 - category
+- recent_posts
 - links
 - ukagaka
 

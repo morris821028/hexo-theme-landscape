@@ -1,104 +1,51 @@
 #ukagaka_controlpanel 
-  position: relative;
+  position fixed
   float right
-  height:30px;
-  line-height:30px;
-  color:white;
-  font-weight:bold;
-  padding: 0px;
-  z-index: 9999
-  img    
-    color color-blue
-    width 30px
-    height 30px
-    display inline-block
-    &:hover
-      opacity 0.4
-      transition color .5s
-  span
-    float right
-    width 10px
-    padding 0px 6px
-    &:hover:before
-      color color-blue
-    &[title="menu"]::before, &[title="gotop"]::before
-      font-family font-icon-family
-      font-smoothing()
-    &[title="menu"]::before
-      content "\f03a"
-    &[title="gotop"]::before
-      content "\f062"  
-    &:hover:before
-      color color-blue
-    &[title="godown"]::before,&[title="music"]::before,&[title="mail"]::before,&[title="power"]::before,&[title="learn"]::before
-      font-family font-icon-family
-      font-smoothing() 
-    &[title="godown"]::before
-      content "\f063"
-    &[title="music"]::before
-      content "\f001"
-    &[title="mail"]::before
-      content "\f003"
-    &[title="power"]::before
-      content "\f011"
-    &[title="learn"]::before
-      content "\f044"
+  right 0px
+  bottom 10px
+  ul
+    margin 7px 0
+    li
+      @extend $block
+      font-size 18px
+      display block
+      margin 2px 5px
+      height 18px
+      width 20px
+      background none repeat scroll 0% 0% rgba(155, 155, 155, 0.5)
+      color #FFF
+      padding 8px 6px
+      text-decoration none
+      text-align center
+      cursor pointer 
 
+.ukagaka_block
+  max-width 200px
+  
 #ukagaka_panel 
-  @extend $block
-  width: 250px;
-  position:fixed;
-  right: 30px;
-  bottom: 0;
-  z-index: 9999;
+  position fixed
+  width: 210px
+  right: 5px
+  bottom: 250px
+  z-index: 9999
   font-family: font-serif
   span 
   	cursor pointer 
-  input[type="checkbox"]
-    display:block;
-    margin:0 0;
-    padding:0 0;
-    position:absolute;
-    top:0;
-    right:0;
-    left:0;
-    width:100%;
-    height:26px;
-    z-index:4;
-    cursor:pointer;
-    opacity:0;
-  label
-    display:block;
-    height: 30px;
-    line-height: 30px;
-    background-color: color-button;
-    color: color-font;
-    font-weight:bold;
-    padding:0 1em 1px;
-  label:before 
-    content: attr(data-collapsed)
-  input[type="checkbox"]:checked + label:before 
-    content: attr(data-expanded)
-  .chat-box-content
-    display: none
-  input[type="checkbox"]:checked ~ .chat-box-content 
-    display: block
-  input[type="checkbox"]:hover + label 
-    background-color: color-link
 
-.ukagaka_box, .ukagaka_toc
+.ukagaka_box, .ukagaka_toc, .ukagaka_msg
+  @extend $block
+  max-width 200px
   font-size 100%
   background color-theme
   color color-font
-  width 100%
+  padding 10px
+  line-height 1.25em
+  font-family font-serif
+  a
+    text-decoration: none
+    color color-font
 
 .ukagaka_msg
-  padding 0.5em
-  color color-font
-  font-family 'Comic Sans MS', font-serif
-  &::before
-    font-smoothing()
-    padding-right 0.5em    
   span#ukagaka_menu_btn_addstring, span#ukagaka_menu_btn_renewlist, 
   span#ukagaka_menu_btn_exit, span#ukagaka_btn_menu, span#ukagaka_addmenu_add
     margin 0.1em
@@ -115,56 +62,31 @@
       text-decoration: underline
 
 .ukagaka_img 
-  width 100%
-  position relative
+  max-height 270px
+  position fixed
   right 0px
-  bottom -10px 
+  bottom -20px 
+  pointer-events none
 
+.ukagaka_log
+  width 50px
+  right 0px
+  position relative
+  cursor pointer
 #ukagaka_stringinput 
   >input
     width 95%
 
-.ukagaka_box
-  @extend $block
-  width 97%
-  border-width 4px
-  border-color color-grey
+.typed-cursor
+  opacity 1
+  -webkit-animation blink 0.7s infinite
+  -moz-animation blink 0.7s infinite
+  animation blink 0.7s infinite
 
-.spinner
-  margin 5px auto 0
-  width 70px
-  text-align center
-  & > div
-    width 10px
-    height 10px
-    margin 5px
-    background-color #333
-    border-radius 100%
-    display inline-block
-    -webkit-animation bouncedelay 1.4s infinite ease-in-out
-    animation bouncedelay 1.4s infinite ease-in-out
-    -webkit-animation-fill-mode both
-    animation-fill-mode both
-  .bounce1
-    -webkit-animation-delay -0.32s
-    animation-delay -0.32s
-  .bounce2
-    -webkit-animation-delay -0.16s
-    animation-delay -0.16s
-
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0.0) }
-  40% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes bouncedelay {
-  0%, 80%, 100% { 
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 40% { 
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-  }
+@keyframes blink {
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }
 
 .left

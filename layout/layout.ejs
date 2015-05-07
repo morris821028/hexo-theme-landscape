@@ -4,7 +4,9 @@
     <div id="wrap">
       <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
       <div class="outer">
-        <% if(page.layout == 'page' || page.layout == 'tags') { %>
+        <% if (page.layout == '404') { %>
+          <%- partial('404') %>
+        <% } else if(page.layout == 'page' || page.layout == 'tags') { %>
           <section id="main" style="width: 95%"><%- body %></section>
         <% } else { %>
           <section id="main"><%- body %></section>

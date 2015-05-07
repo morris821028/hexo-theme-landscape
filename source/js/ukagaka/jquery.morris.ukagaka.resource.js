@@ -213,12 +213,7 @@
                 loadTalk(options);
             }
             showText(loadingText);
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 1800) {
-                    showText($("#toc").html());
-                }
-            });
-
+            
             $("#ukagaka_usertalk").keypress(function(e) {
                 code = (e.keyCode ? e.keyCode : e.which);
                 if (code == 13) {

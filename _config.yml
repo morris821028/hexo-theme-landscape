@@ -14,12 +14,12 @@ excerpt_link: Read More
 fancybox: true
 
 # Sidebar
-sidebar: top
+sidebar: right
 widgets:
-- category
-- recent_posts
-- links
-- ukagaka
+	- category
+	- recent_posts
+	- links
+	- ukagaka
 
 # Miscellaneous
 google_analytics:
@@ -36,7 +36,7 @@ google_siteVerification:
 # Toc
 toc:
   article: true   ## show contents in article.
-  aside: true     ## show contents in aside.
+  aside: false     ## show contents in aside.
 
 ## social
 facebook_url: https://www.facebook.com/Morris1028

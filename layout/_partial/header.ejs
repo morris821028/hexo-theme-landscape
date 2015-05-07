@@ -15,7 +15,7 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         <% for (var i in theme.menu){ %>
-          <% if (theme.menu[i].layout && theme.menu[i].layout == 1) { %>
+          <% if (theme.menu[i].layout && theme.menu[i].layout == 1 || true) { %>
             <a class="main-nav-link" href="<%- url_for(theme.menu[i].path) %>"><i class=<%= theme.menu[i].class %> title='<%= theme.menu[i].name %>'></i></a>
           <% } else if (theme.menu[i].layout && theme.menu[i].layout == 2) { %>
             <a class="main-nav-link" href="<%- url_for(theme.menu[i].path) %>"><i class=<%= theme.menu[i].class %> title='<%= theme.menu[i].name %>'></i> <%= theme.menu[i].name %></a>

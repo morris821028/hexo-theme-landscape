@@ -8,34 +8,44 @@
   min-height: 20px;
   margin-bottom: 15px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
+  margin-right -24px
+  max-width 30%
   h2, ol, li
     padding 0 0.4em
     margin 0
   h2, li
     cursor pointer
+    
   @media mq-mobile
     margin 1.6em 0
     width 100%
+    max-width 100%
   @media mq-tablet
     margin 1.6em 0
-    width 100%
+    width 30%
+    max-width 30%
 #toc
   line-height 1.3em
   font-size 0.8em
-  float right
+  padding: 15px
   @extend $block
+  float: right
   .toc
     li
       list-style-type none
-      a
-        &:hover
-          color color-font
-          text-decoration none !important
+    a
+      color: color-link
+      text-decoration: none
+      font-family: font-logo
+      font-size 14.4px
+      &:hover
+        text-decoration: underline
   .toc-child
     padding-left 1.5em
+    li
+      list-style-type square
 #toc.toc-aside
   @extend $block
-  display none
   width 13%
   position fixed
   right 2%

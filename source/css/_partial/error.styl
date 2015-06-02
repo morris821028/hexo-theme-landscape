@@ -1,14 +1,11 @@
 .error-wrap
-	margin 0px auto
-	padding-top 64px
-	padding-bottom 64px
-	z-index 1
+	@extend $block
 	color color-default
 
 .error-inner
 	margin 0% 33%
 	text-align left
-	font-family impact, font-serif
+	font-family font-serif
 	p
 		line-height: line-height
 		margin: line-height 0		
@@ -19,6 +16,8 @@
 	a
 		text-transform: uppercase;
 		text-decoration: none
+		text-align: center;
+		display: block;
 	@media mq-mobile
 		margin 0% 5%
 	@media mq-tablet

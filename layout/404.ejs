@@ -1,10 +1,12 @@
 <div class="error-wrap">
 	<div class="error-inner">
-	  <h1>Oops !</h1>
-	  <p>Looks like you took a wrong turn, or we led you astray!</p>
-	  <p>Thank you for visiting our secret little world. We get lonely back here. To get to where you want to go, you could hop on the Digiti bus or Zeppelin.</p>
-	  <p>Or, try one of these, instead:</p>
-	  <a href="<%- url_for() %>" class="error-link link1" title="Go to the home page !">Go to home</a>
-	  <a href="<%=theme.facebook_url %>" class="error-link link2" title="Yes, contact us !">Contact us</a>
+	  <h1>Error</h1>
+	  <p>Looks like you took a wrong turn. Thank you for visiting our secret little world. We get lonely back here. </p>
+
+	  <p>文章也許只是換了位址，請嘗試使用站內搜尋 (右上方搜索列)，用標題的方式搜索，但願能幫上您找到想要的內容。</p>
+
+	  <p><a href="<%- url_for() %>" class="error-link link1" title="Go to the home page !">Go to home</a></p>
+
+	  <p><a href="<%=theme.facebook_url %>" class="error-link link2" title="Yes, contact us !">Contact us</a></p>
    </div>
 </div>

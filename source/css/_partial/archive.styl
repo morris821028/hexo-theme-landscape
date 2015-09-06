@@ -79,9 +79,11 @@
 .archive
   ul
     list-style none
-    margin-left 40px
+    margin-left 20px
     margin-top -26px
     border-left 4px solid #CACACA
+    @media mq-mobile, mq-tablet
+      margin-left 6px
     li
       padding-left: 14px
       overflow hidden
@@ -103,23 +105,47 @@
         font-size 20px
       a
         text-decoration none
-        color: color-link
+        color color-link
         font-size 20px
-  .archive-itme
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
+        @media mq-tablet, mq-mobile
+          display block
+          width 100%
+          text-overflow ellipsis
+  .archive-item
     margin-bottom 20px
     padding-bottom 10px
     border-bottom 1px dashed #ddd
   .archive-year
     font-size 30px
     margin-bottom 30px
+  .archive-article-title
+    width 100%
   .archive-tag
-    color: color-grey
     text-decoration: none
     font-size: 0.85em
     line-height: 0.8em
-    float: right
+    float right
+    text-overflow ellipsis
+    @media mq-tablet, mq-mobile
+      width 100%
+      .article-tag-list-item
+        width 100%
+      .article-tag-list
+        width 100%
     ul, li
-      margin: 0px 3px;
+      margin 0px 3px
+      @media mq-tablet
+        display block
+      @media mq-normal
+        display block
     a
       text-decoration none
-      color: color-grey
+      color color-grey
+      white-space nowrap
+      @media mq-tablet, mq-mobile
+        display block
+        width 100%
+        text-overflow ellipsis

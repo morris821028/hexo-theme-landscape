@@ -34,18 +34,21 @@ $line-numbers
   code
     padding 2px 4px
     font-size 90%
-    color #c7254e
-    background-color rgba(249, 249, 249, 0.1)
-    border-radius 4px
-    font-family font-mono
+    color #C0C0C0
+    background-color highlight-background
+    border 1px solid color-border
+    border-radius 3px
+    font-family Monaco, Consolas
     margin 0 2px
-    padding: 0 0.3em
+    padding 0.2em 0.3em
+    font-weight 400
   pre
     @extend $code-block
     code
       background: none
       text-shadow: none
       padding: 0
+      border: none
   .highlight
     @extend $code-block
     pre
@@ -58,6 +61,7 @@ $line-numbers
     td
       border: none
       padding: 0
+      box-shadow: none
     figcaption
       clearfix()
       font-size: 0.85em

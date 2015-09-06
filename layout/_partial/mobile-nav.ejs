@@ -1,5 +1,5 @@
 <nav id="mobile-nav">
   <% for (var i in theme.menu){ %>
-    <a href="<%- url_for(theme.menu[i].path) %>" class="mobile-nav-link"><%= theme.menu[i].name %></a>
+    <a href="<%- url_for(theme.menu[i].path) %>" class="mobile-nav-link"><i class=<%= theme.menu[i].class %> ></i>&nbsp&nbsp<%= theme.menu[i].name %></a>
   <% } %>
 </nav>

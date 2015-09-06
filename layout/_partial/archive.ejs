@@ -29,12 +29,12 @@
         <% if(this_year){ %>
           </div></ul>
         <% } %>
-      <div class="archive-itme"><div id="<%= year %>" class="archive-year"><%= year %></div>
+      <div class="archive-item"><div id="<%= year %>" class="archive-year"><%= year %></div>
       <ul>
       <% this_year = year; } %>
       <li>
           <time datetime="<%= item.date.toDate().toISOString() %>"><%= item.date.format("MMM-Do") %></time>
-          <a href="<%- config.root %><%- item.path %>"><%= item.title %></a>
+          <a class="archive-article-title" href="<%- config.root %><%- item.path %>"><%= item.title %></a>
           <div class="archive-tag">
           <%- list_tags(item.tags, {
             show_count: false,
@@ -46,6 +46,14 @@
     </div>
   </div>
 </article>
+<% if (page.total > 1){ %>
+    <nav id="page-nav">
+      <%- paginator({
+        prev_text: '&laquo; Prev',
+        next_text: 'Next &raquo;'
+      }) %>
+    </nav>
+  <% } %>
 <% } else { %>
   <% var last; %>
   <% page.posts.each(function(post, i){ %>

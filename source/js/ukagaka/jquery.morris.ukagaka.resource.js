@@ -443,7 +443,7 @@
     };
 
     $.ukagaka.defaults = {
-        jsonPath: 'js/ukagaka/assets/chiyo/chiyo.model.json',
+        jsonPath: '/js/ukagaka/assets/chiyo/chiyo.model.json',
         modelConfig: null,
         googleKey: '0ArRwmWo93u-mdG93a2dkSWxIbHEzZjRIeDdxZXdsU1E',
         googleFormkey: '1xADUIiBq1ksH7lxwSch1Nz_p2gSxdJttmv5OJOxJye0',

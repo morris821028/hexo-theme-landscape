@@ -9,7 +9,7 @@
       <header class="article-header">
         <%- partial('post/title', {class_name: 'article-title'}) %>
       </header>
-    <% } %>    
+    <% } %>
     <footer class="article-footer">
       <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link">Share</a>
       <% if (post.comments && config.disqus_shortname){ %>

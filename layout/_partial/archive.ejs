@@ -33,12 +33,13 @@
       <ul>
       <% this_year = year; } %>
       <li>
-          <time datetime="<%= item.date.toDate().toISOString() %>"><%= item.date.format("MMM-Do") %></time>
+          <time datetime="<%= item.date.toDate().toISOString() %>"><%= item.date.format("MM/DD") %></time>
           <a class="archive-article-title" href="<%- config.root %><%- item.path %>"><%= item.title %></a>
           <div class="archive-tag">
           <%- list_tags(item.tags, {
             show_count: false,
-            class: 'article-tag'
+            class: 'article-tag',
+            separator: ','
           }) %>
           </div>
       </li>

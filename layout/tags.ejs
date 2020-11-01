@@ -2,12 +2,16 @@
 	<div class="article-inner"> 	
 	<header class="article-header">
     <h1 itemprop="name">
-      <a class="article-title" href="">Tag Cloud</a>
+      <a class="article-title" href="">Tags</a>
     </h1>
-    </header>   
+    </header>
     <footer class="article-footer"></footer>
 	    <div class="widget tagcloud">
-	      <%- tagcloud({'amount': '1024', 'orderby': 'name', 'order': '1', min_font: 14, max_font: 48}) %>
+	      <%- tagcloud({'amount': '1024',
+	      				'orderby': 'name',
+	      				'order': '1',
+	      				min_font: 14,
+	      				max_font: 48}) %>
 	    </div>
 	</div>
 </article>

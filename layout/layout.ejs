@@ -9,8 +9,12 @@
         <% } else if(page.layout == 'page' || page.layout == 'tags') { %>
           <section id="main" style="width: 95%"><%- body %></section>
         <% } else { %>
+          <% if (page.layout == 'post') {%>
+          <section id="main" style="width: 95%"><%- body %></section>
+          <% } else { %>
           <section id="main"><%- body %></section>
-          <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
+          <% } %>
+          <% if (theme.sidebar && theme.sidebar !== 'bottom' && page.layout !== 'post'){ %>
             <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
           <% } %>
         <% } %>
